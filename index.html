@@ -398,26 +398,21 @@
       }
 
       .gallery-strip {
-        display: flex;
-        gap: 1.2rem;
-        overflow-x: auto;
-        scrollbar-width: none;
-        padding: 1rem 0.5rem 1.5rem;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        justify-content: center;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1rem 0 1.5rem;
+        max-width: 900px;
+        margin: 0 auto;
       }
       .gallery-strip::-webkit-scrollbar {
         display: none;
       }
 
       .gallery-item {
-        flex: 0 0 260px;
-        height: 340px;
+        height: 240px;
         border-radius: 16px;
         overflow: hidden;
-        scroll-snap-align: start;
         position: relative;
         box-shadow: 0 8px 30px rgba(42, 26, 31, 0.15);
         transition:
@@ -466,11 +461,11 @@
         bottom: 0;
         left: 0;
         right: 0;
-        padding: 1.5rem 1rem 1rem;
+        padding: 1.2rem 0.8rem 0.8rem;
         background: linear-gradient(to top, rgba(42, 26, 31, 0.7), transparent);
         color: white;
         font-family: var(--font-display);
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-style: italic;
         font-weight: 300;
         text-align: center;
@@ -706,6 +701,34 @@
         }
       }
 
+      @media (max-width: 600px) {
+        .gallery-strip {
+          grid-template-columns: 1fr 1fr;
+          gap: 0.75rem;
+          padding: 0.75rem 0 1rem;
+        }
+
+        .gallery-item {
+          height: 180px;
+          border-radius: 12px;
+        }
+
+        .gallery-item-label {
+          font-size: 0.78rem;
+          padding: 1rem 0.6rem 0.6rem;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .gallery-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-item {
+          height: 220px;
+        }
+      }
+
       @media (max-width: 480px) {
         .gallery-item {
           flex: 0 0 180px;
@@ -784,19 +807,21 @@
 
       <div class="message-card reveal">
         <p class="message-text">
-          Cada momento ao seu lado é um presente que eu nunca poderia imaginar
-          merecer. Você transforma os dias comuns em memórias extraordinárias, e
-          faz com que eu queira ser alguém melhor a cada amanhecer.
+          Oi minha alemoa!! 🥰 Hoje é o seu dia e eu não podia deixar passar sem
+          falar o quanto você é especial pra mim.
           <br /><br />
-          Hoje, neste dia tão especial, quero que saiba que o meu amor por você
-          cresce a cada respiração, a cada sorriso seu, a cada olhar
-          compartilhado.
+          Das nossas viagens malucas, daquelas aventuras que a gente nem
+          planejava direito mas que sempre viravam a melhor história pra contar
+          depois — você torna tudo mais divertido só de estar do meu lado. 🌍✈️
           <br /><br />
-          Você é o meu lar. Você é minha história favorita.
+          E claro, como falar de nós sem falar dos nossos <em>pilicos</em>? 🐦
+          Esses parceirinhos que fazem parte da nossa história também!
           <br /><br />
-          <strong>Feliz aniversário, meu amor eterno. 💖</strong>
+          Te amo demais, mozão. Hoje e sempre! 🥂
+          <br /><br />
+          <strong>Feliz aniversário, minha alemoa!! 🎉💖</strong>
         </p>
-        <p class="message-author">— Com todo o meu amor, para sempre</p>
+        <p class="message-author">— do seu mozão favorito 😘</p>
       </div>
 
       <div class="divider">
@@ -870,22 +895,16 @@
         <h2 class="section-title">Uma mensagem <em>especial</em> 💖</h2>
       </div>
 
-      <!-- Troque o src pelo link do seu vídeo no YouTube ou Vimeo -->
       <div class="video-wrapper reveal">
-        <iframe
-          src="https://www.youtube.com/embed/9g5b0Zp2kMo?rel=0&modestbranding=1"
-          title="Mensagem especial de aniversário"
-          allow="
-            accelerometer;
-            autoplay;
-            clipboard-write;
-            encrypted-media;
-            gyroscope;
-            picture-in-picture;
-          "
-          allowfullscreen
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          style="width: 100%; height: 100%; object-fit: cover; display: block"
         >
-        </iframe>
+          <source src="video/video.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo.
+        </video>
       </div>
     </section>
 
@@ -909,7 +928,7 @@
     <!-- FOOTER -->
     <footer>
       <p>
-        Feito com amor infinito · <span class="heartbeat">♥</span> ·
+        Feito com amor infinito por Everton· <span class="heartbeat">♥</span> ·
         <span id="year"></span>
       </p>
     </footer>
